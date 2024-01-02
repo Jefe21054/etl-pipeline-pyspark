@@ -9,7 +9,6 @@ spark = pyspark.sql.SparkSession \
    .config('spark.driver.extraClassPath', "driver/postgresql-42.2.18.jar") \
    .getOrCreate()
 
-
 # Read data from .env file with python-decouple
 DB_NAME = config('DB_NAME')
 DB_USER = config('DB_USER')
@@ -33,3 +32,6 @@ movies_df = spark.read \
 
 # Print the movies_df
 print(movies_df.show())
+
+# Stop the Spark session
+spark.stop()
