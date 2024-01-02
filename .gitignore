@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,spark
 
 airflow/airflow.cfg
-airflow.cfg
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
