@@ -1,0 +1,4 @@
+pyspark
+python-decouple
+psycopg2
+flake8
