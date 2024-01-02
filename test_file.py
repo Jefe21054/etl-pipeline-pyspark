@@ -3,10 +3,8 @@ import os
 import pyspark.sql
 
 # Create spark session
-spark = pyspark.sql.SparkSession \
-    .builder \
+spark = pyspark.sql.SparkSession.builder \
     .appName(" Testing Python Spark SQL ") \
-    .config('spark.driver.extraClassPath', "driver/postgresql-42.2.18.jar") \
     .getOrCreate()
 
 
@@ -27,8 +25,7 @@ def test_datos():
                    {"movie_id": "2", "rating": 3},
                    {"movie_id": "2", "rating": 4},
                    {"movie_id": "2", "rating": 5}]
-    users_df = spark.createDataFrame(sample_data)
-    df = users_df
+    df = spark.createDataFrame(sample_data)
     MENSAJE_ERROR = 'The dataframe cannot be empty'
 
     # Verifying empty assertions
