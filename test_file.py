@@ -9,13 +9,6 @@ spark = pyspark.sql.SparkSession \
     .config('spark.driver.extraClassPath', "driver/postgresql-42.2.18.jar") \
     .getOrCreate()
 
-sample_data = [{"movie_id": "1", "rating": 4},
-               {"movie_id": "1", "rating": 5},
-               {"movie_id": "2", "rating": 3},
-               {"movie_id": "2", "rating": 4},
-               {"movie_id": "2", "rating": 5}]
-users_df = spark.createDataFrame(sample_data)
-
 
 def test_driver():
     '''Unit Test para verificar que
@@ -23,12 +16,18 @@ def test_driver():
     assert os.path.exists('driver')
 
 
-def test_datos(users_df):
+def test_datos():
     '''Unit Test para las funciones que
         crean dataframes, el programa
         debe arrojar siempre dataframes
         que contengan datos.'''
 
+    sample_data = [{"movie_id": "1", "rating": 4},
+                   {"movie_id": "1", "rating": 5},
+                   {"movie_id": "2", "rating": 3},
+                   {"movie_id": "2", "rating": 4},
+                   {"movie_id": "2", "rating": 5}]
+    users_df = spark.createDataFrame(sample_data)
     df = users_df
     MENSAJE_ERROR = 'The dataframe cannot be empty'
 
