@@ -3,3 +3,4 @@ python-decouple
 psycopg2
 flake8
 apache-airflow
+pytest
